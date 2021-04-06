@@ -1,0 +1,31 @@
+{
+  "name": "ast",
+  "version": "1.0.4",
+  "description": "ast 工具包，封装了一些常用的方法，如字符串还原等",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coder-gao/ast.git"
+  },
+  "keywords": [
+    "ast"
+  ],
+  "author": "寒菱",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coder-gao/ast/issues"
+  },
+  "homepage": "https://github.com/coder-gao/ast#readme",
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.13.9",
+    "@babel/parser": "^7.13.13",
+    "@babel/traverse": "^7.13.13",
+    "@babel/types": "^7.13.14"
+  }
+}

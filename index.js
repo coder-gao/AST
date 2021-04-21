@@ -35,6 +35,33 @@ const ConstantCalculate =
         },
     }
 
+const resolveSequence = {
+    SequenceExpression: {
+        exit(path){
+            let CondintionPath = path.findParent(p => p.isConditionalExpression());
+            let statement = path.getStatementParent();
+            if (!statement) return;
+            if (CondintionPath)
+            {
+                let nextCondintionPath = statement.findParent(p => p.isConditionalExpression());
+                if (nextCondintionPath != CondintionPath) return;
+            }
+            let expressions = path.get('expressions');
+            let lastExpression = expressions.pop();
+            for (let expression of expressions)
+            {
+                if(expression.isLiteral() ||expression.isIdentifier())
+                {
+                    expression.remove();
+                    continue;
+                }
+                statement.insertBefore(types.ExpressionStatement(expression=expression.node));
+            }
+            path.replaceInline(lastExpression);
+        }
+    },
+}
 
 exports.encodingConversion = encodingConversion
 exports.ConstantCalculate = ConstantCalculate
+exports.resolveSequence = resolveSequence

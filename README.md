@@ -29,7 +29,7 @@ hanling
 
 ## ConstantCalculate
 ```js
-const {ConstantCalculate} = require("../index");
+const {ConstantCalculate} = require("ast");
 
 const {parse} = require("@babel/parser");
 const traverse = require("@babel/traverse").default;
@@ -52,4 +52,33 @@ var a = 579;
 var b = 333;
 var ab = 912;
 var c = true;
+```
+
+## resolveSequence
+```js
+const {resolveSequence} = require("ast");
+
+const {parse} = require("@babel/parser");
+const traverse = require("@babel/traverse").default;
+const generator = require("@babel/generator").default;
+
+let jscode =
+    `
+function func() {
+  return a = 1, b = 2, a + b;
+}
+`
+let ast = parse(jscode);
+
+traverse(ast, resolveSequence);
+let {code} = generator(ast);
+console.log(code);
+
+
+output:
+function func() {
+    a = 1;
+    b = 2;
+    return a + b;
+}
 ```

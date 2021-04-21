@@ -1,6 +1,6 @@
 {
   "name": "ast",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "ast 工具包，封装了一些常用的方法，如字符串还原等",
   "main": "index.js",
   "scripts": {
@@ -11,10 +11,11 @@
     "url": "git+https://github.com/coder-gao/ast.git"
   },
   "keywords": [
-    "ast"
+    "ast",
+    "babel"
   ],
   "author": "寒菱",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/coder-gao/ast/issues"
   },
@@ -24,9 +25,9 @@
   },
   "dependencies": {
     "@babel/core": "^7.13.15",
-    "@babel/generator": "^7.13.9",
-    "@babel/parser": "^7.13.15",
-    "@babel/traverse": "^7.13.15",
+    "@babel/generator": "^7.13.16",
+    "@babel/parser": "^7.13.16",
+    "@babel/traverse": "^7.13.17",
     "@babel/types": "^7.13.14"
   }
 }

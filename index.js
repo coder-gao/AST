@@ -62,6 +62,12 @@ const resolveSequence = {
     },
 }
 
+const removeEmptyLine = {
+    EmptyStatement(path) {
+        path.remove();
+    }
+}
 exports.encodingConversion = encodingConversion
 exports.ConstantCalculate = ConstantCalculate
 exports.resolveSequence = resolveSequence
+exports.removeEmptyLine = removeEmptyLine
